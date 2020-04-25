@@ -14,8 +14,7 @@ struct SHOE{
 	int id = 0;
 };
 
-void insertDeliver(SHOE deliver[], int& deliverCount)
-{
+void insertDeliver(SHOE deliver[], int& deliverCount){
 	cout << "\nEnter gender: ";
 	cin >> deliver[deliverCount].gender;
 
@@ -37,8 +36,7 @@ void insertDeliver(SHOE deliver[], int& deliverCount)
 	deliverCount++;
 }
 
-void deleteDeliver(SHOE deliver[], int& deliverCount)
-{
+void deleteDeliver(SHOE deliver[], int& deliverCount){
 	string gender;
 	string brand;
 	string model;
@@ -75,6 +73,68 @@ void deleteDeliver(SHOE deliver[], int& deliverCount)
 		deliverCount--;
 	}
 
+}
+
+void showDeliverMenu(SHOE deliver[], int& deliverCount) {
+
+	cout << "\n List of your deliver: " << endl;
+
+	for (int i = 0; i < deliverCount; i++)
+	{
+		cout << deliver[i].gender << "," << deliver[i].brand << "," << deliver[i].model << endl;
+		cout << deliver[i].size << "," << deliver[i].color << "," << deliver[i].price << endl;
+
+	}
+}
+
+bool showMainMenu(SHOE deliver[], int& deliverCount) {
+	int choice;
+
+	cout << "\n*********************************************" << endl;
+	cout << "*                                           *" << endl;
+	cout << "*W E L C O M E   T O   S H O E   H E A V E N*" << endl;
+	cout << "*                                           *" << endl;
+	cout << "*********************************************" << endl;
+	cout << "?WHAT DO YOU WANT TO DO?" << endl;
+	cout << "Choose:" << endl;
+	cout << "1. Make a deliver" << endl;
+	cout << "2. Edit deliver" << endl;
+	cout << "3. Delete deliver" << endl;
+	cout << "4. View your deliver" << endl;
+	cout << "5. Accessories" << endl;
+	cout << "9. Exit" << endl;
+	cout << "Your choice: ";
+
+	cin >> choice;
+
+	switch (choice) {
+	case 1: {
+		insertDeliver(deliver, deliverCount);
+		break;
+	}
+	case 2: {
+		;
+		break;
+	}
+	case 3: {
+		deleteDeliver(deliver, deliverCount);
+		break;
+	}
+	case 4: {
+		showDeliverMenu(deliver, deliverCount);
+		break;
+	}
+	case 5: {
+		;
+		break;
+	}
+	case 9: {
+		return false;
+	}
+	default:
+		break;
+
+	}
 }
 
 int main()

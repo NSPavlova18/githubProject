@@ -2,7 +2,6 @@
 //
 
 #include <iostream>
-#include <string>
 using namespace std;
 
 struct SHOE{
@@ -12,6 +11,7 @@ struct SHOE{
 	double size = 0;
 	string color = "";
 	double price = 0;
+	int id = 0;
 };
 
 void insertDeliver(SHOE deliver[], int& deliverCount)
@@ -35,6 +35,46 @@ void insertDeliver(SHOE deliver[], int& deliverCount)
 	cin >> deliver[deliverCount].price;
 
 	deliverCount++;
+}
+
+void deleteDeliver(SHOE deliver[], int& deliverCount)
+{
+	string gender;
+	string brand;
+	string model;
+	double size;
+	string color;
+	double price;
+
+	cout << "\nEnter gender: ";
+	cin >> gender;
+
+	cout << "\nEnter shoe brand: ";
+	cin >> brand;
+
+	cout << "\nEnter shoe model: ";
+	cin >> model;
+
+	cout << "\nEnter shoe size: ";
+	cin >> size;
+
+	cout << "\nEnter shoe color: ";
+	cin >> color;
+
+	cout << "\nEnter shoe price: ";
+	cin >> price;
+
+	for (int i = 0; i < deliverCount; i++) {
+
+		if (deliver[i].gender == gender and deliver[i].brand == brand and deliver[i].model == model and deliver[i].size == size and deliver[i].color == color and deliver[i].price == price) {
+
+			for (int i = 0; i < deliverCount; i++) {
+				deliver[i] = deliver[i + 1];
+			}
+		}
+		deliverCount--;
+	}
+
 }
 
 int main()

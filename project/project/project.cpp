@@ -2,19 +2,48 @@
 //
 
 #include <iostream>
+#include <string>
 using namespace std;
 
-struct SHOE{
-	string gender = "";
-	string brand = "";
-	string model = "";
-	double size = 0;
-	string color = "";
-	double price = 0;
+struct ACCOUNT {
+	string firstName = "";
+	string lastName = "";
+	int age = 0;;
+	string country = "";
+	string city = "";
 	int id = 0;
 };
 
-void insertDeliver(SHOE deliver[], int& deliverCount){
+struct SHOE {
+	string gender = "";
+	string brand = "";
+	string model = "";
+	double size;
+	string color = "";
+	double price;
+	int id = 0;
+};
+
+void signUp(ACCOUNT person[], int& accountCount) {
+	cout << "\nEnter your first name: ";
+	cin >> person[accountCount].firstName;
+
+	cout << "\nEnter your last name: ";
+	cin >> person[accountCount].lastName;
+
+	cout << "\nEnter your age: ";
+	cin >> person[accountCount].age;
+
+	cout << "\nEnter your country: ";
+	cin >> person[accountCount].country;
+
+	cout << "\nEnter your country: ";
+	cin >> person[accountCount].city;
+
+	accountCount++;
+}
+
+void insertDeliver(SHOE deliver[], int& deliverCount) {
 	cout << "\nEnter gender: ";
 	cin >> deliver[deliverCount].gender;
 
@@ -36,7 +65,7 @@ void insertDeliver(SHOE deliver[], int& deliverCount){
 	deliverCount++;
 }
 
-void deleteDeliver(SHOE deliver[], int& deliverCount){
+void editDeliver(SHOE deliver[], int& deliverCount) {
 	string gender;
 	string brand;
 	string model;
@@ -75,19 +104,40 @@ void deleteDeliver(SHOE deliver[], int& deliverCount){
 
 }
 
-void showDeliverMenu(SHOE deliver[], int& deliverCount) {
-
-	cout << "\n List of your deliver: " << endl;
-
-	for (int i = 0; i < deliverCount; i++)
-	{
-		cout << deliver[i].gender << "," << deliver[i].brand << "," << deliver[i].model << endl;
-		cout << deliver[i].size << "," << deliver[i].color << "," << deliver[i].price << endl;
-
-	}
+void newAccount(ACCOUNT* people, int& accountCount, ACCOUNT newAccount, int& maxId) {
+	newAccount.id = maxId;
+	people[accountCount] = newAccount;
+	accountCount++;
+	maxId++;
 }
 
-bool showMainMenu(SHOE deliver[], int& deliverCount) {
+void showAccounts(ACCOUNT* people, SHOE deliver[], int& accountCount, int& maxId, int& deliverCount) {
+
+	cout << "ACCOUNTS:" << endl;
+	cout << endl;
+
+	for (int i = 0; i < accountCount; i++) {
+
+		cout << i + 1 << ". " << people[i].firstName << " " << people[i].lastName << ", ";
+		cout << people[i].age << " years old ";
+		cout << "From " << people[i].city << ", " << people[i].country << endl;
+
+		cout << endl;
+		cout << "\n List of the delivers: " << endl;
+		cout << endl;
+
+		for (int i = 0; i < deliverCount; i++)
+		{
+			cout << deliver[i].gender << "," << deliver[i].brand << "," << deliver[i].model << endl;
+			cout << deliver[i].size << "," << deliver[i].color << "," << deliver[i].price << endl;
+
+		}
+		cout << endl;
+	}
+
+}
+
+bool showMainMenu(SHOE deliver[], ACCOUNT person[], ACCOUNT* people, int& deliverCount, int& accountCount, int& maxId) {
 	int choice;
 
 	cout << "\n*********************************************" << endl;
@@ -97,10 +147,10 @@ bool showMainMenu(SHOE deliver[], int& deliverCount) {
 	cout << "*********************************************" << endl;
 	cout << "?WHAT DO YOU WANT TO DO?" << endl;
 	cout << "Choose:" << endl;
-	cout << "1. Make a deliver" << endl;
-	cout << "2. Edit deliver" << endl;
-	cout << "3. Delete deliver" << endl;
-	cout << "4. View your deliver" << endl;
+	cout << "1. Sign up" << endl;
+	cout << "2. Make a deliver" << endl;
+	cout << "3. Edit deliver" << endl;
+	cout << "4. View account's delivers" << endl;
 	cout << "5. Accessories" << endl;
 	cout << "9. Exit" << endl;
 	cout << "Your choice: ";
@@ -109,19 +159,19 @@ bool showMainMenu(SHOE deliver[], int& deliverCount) {
 
 	switch (choice) {
 	case 1: {
-		insertDeliver(deliver, deliverCount);
+		signUp(person, accountCount);
 		break;
 	}
 	case 2: {
-		;
+		insertDeliver(deliver, deliverCount);
 		break;
 	}
 	case 3: {
-		deleteDeliver(deliver, deliverCount);
+		editDeliver(deliver, deliverCount);
 		break;
 	}
 	case 4: {
-		showDeliverMenu(deliver, deliverCount);
+		showAccounts(people, deliver, accountCount, maxId, deliverCount);
 		break;
 	}
 	case 5: {
@@ -139,7 +189,7 @@ bool showMainMenu(SHOE deliver[], int& deliverCount) {
 
 int main()
 {
-	
+	cout << "Hello";
 }
 
 

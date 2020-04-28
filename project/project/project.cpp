@@ -65,6 +65,17 @@ void insertDeliver(SHOE deliver[], int& deliverCount) {
 	deliverCount++;
 }
 
+ACCOUNT searchForAccount(ACCOUNT* people, int& accountCount, int id) {
+
+	for (int i = 0; i < accountCount; i++) {
+		if (people[i].id == id) {
+			return i;
+		}
+	}
+	return -1;
+	return people[?];
+}
+
 void editDeliver(SHOE deliver[], int& deliverCount) {
 	string gender;
 	string brand;

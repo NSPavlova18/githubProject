@@ -69,11 +69,10 @@ ACCOUNT searchForAccount(ACCOUNT* people, int& accountCount, int id) {
 
 	for (int i = 0; i < accountCount; i++) {
 		if (people[i].id == id) {
-			return i;
+			return people[i];
 		}
 	}
-	return -1;
-	return people[?];
+	
 }
 
 void editDeliver(SHOE deliver[], int& deliverCount) {
@@ -148,6 +147,8 @@ void showAccounts(ACCOUNT* people, SHOE deliver[], int& accountCount, int& maxId
 
 }
 
+
+
 bool showMainMenu(SHOE deliver[], ACCOUNT person[], ACCOUNT* people, int& deliverCount, int& accountCount, int& maxId) {
 	int choice;
 
@@ -162,7 +163,7 @@ bool showMainMenu(SHOE deliver[], ACCOUNT person[], ACCOUNT* people, int& delive
 	cout << "2. Make a deliver" << endl;
 	cout << "3. Edit deliver" << endl;
 	cout << "4. View account's delivers" << endl;
-	cout << "5. Accessories" << endl;
+	cout << "5. View cash" << endl;
 	cout << "9. Exit" << endl;
 	cout << "Your choice: ";
 

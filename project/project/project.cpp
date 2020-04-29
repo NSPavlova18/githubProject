@@ -157,7 +157,7 @@ void showAccounts(ACCOUNT* people, SHOE deliver[], int& accountCount, int& maxId
 
 
 
-bool showMainMenu(SHOE deliver[], ACCOUNT person[], ACCOUNT* people, int& deliverCount, int& accountCount, int& maxId) {
+int showMainMenu(SHOE deliver[], ACCOUNT person[], ACCOUNT* people, int& deliverCount, int& accountCount, int& maxId) {
 	int choice;
 
 	cout << "\n*********************************************" << endl;
@@ -208,6 +208,7 @@ bool showMainMenu(SHOE deliver[], ACCOUNT person[], ACCOUNT* people, int& delive
 		return false;
 	}
 	default:
+		cout<<"Sorry, this is not a valid option. Try again!";
 		break;
 
 	}

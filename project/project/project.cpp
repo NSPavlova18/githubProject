@@ -24,7 +24,8 @@ struct SHOE {
 	int id = 0;
 };
 
-void signUp(ACCOUNT person[], int& accountCount) {
+ /*
+ void signUp(ACCOUNT person[], int& accountCount) {
 	cout << "\nEnter your first name: ";
 	cin >> person[accountCount].firstName;
 
@@ -42,6 +43,7 @@ void signUp(ACCOUNT person[], int& accountCount) {
 
 	accountCount++;
 }
+*/
 
 void insertDeliver(SHOE deliver[], int& deliverCount) {
 	cout << "\nEnter gender: ";
@@ -65,6 +67,7 @@ void insertDeliver(SHOE deliver[], int& deliverCount) {
 	deliverCount++;
 }
 
+/*
 ACCOUNT searchForAccount(ACCOUNT* people, int& accountCount, int id) {
 
 	for (int i = 0; i < accountCount; i++) {
@@ -74,6 +77,7 @@ ACCOUNT searchForAccount(ACCOUNT* people, int& accountCount, int id) {
 	}
 	
 }
+*/
 
 void editDeliver(SHOE deliver[], int& deliverCount) {
 	string gender;
@@ -103,7 +107,7 @@ void editDeliver(SHOE deliver[], int& deliverCount) {
 
 	for (int i = 0; i < deliverCount; i++) {
 
-		if (deliver[i].gender == gender and deliver[i].brand == brand and deliver[i].model == model and deliver[i].size == size and deliver[i].color == color and deliver[i].price == price) {
+		if (deliver[i].gender == gender && deliver[i].brand == brand && deliver[i].model == model && deliver[i].size == size && deliver[i].color == color && deliver[i].price == price) {
 
 			for (int i = 0; i < deliverCount; i++) {
 				deliver[i] = deliver[i + 1];
@@ -114,13 +118,16 @@ void editDeliver(SHOE deliver[], int& deliverCount) {
 
 }
 
+/*
 void newAccount(ACCOUNT* people, int& accountCount, ACCOUNT newAccount, int& maxId) {
 	newAccount.id = maxId;
 	people[accountCount] = newAccount;
 	accountCount++;
 	maxId++;
 }
+*/
 
+/*
 void showAccounts(ACCOUNT* people, SHOE deliver[], int& accountCount, int& maxId, int& deliverCount) {
 
 	cout << "ACCOUNTS:" << endl;
@@ -146,6 +153,7 @@ void showAccounts(ACCOUNT* people, SHOE deliver[], int& accountCount, int& maxId
 	}
 
 }
+*/
 
 
 
@@ -170,22 +178,28 @@ bool showMainMenu(SHOE deliver[], ACCOUNT person[], ACCOUNT* people, int& delive
 	cin >> choice;
 
 	switch (choice) {
+	/*
 	case 1: {
 		signUp(person, accountCount);
 		break;
 	}
+	*/
+	/*
 	case 2: {
 		insertDeliver(deliver, deliverCount);
 		break;
 	}
+	*/
 	case 3: {
 		editDeliver(deliver, deliverCount);
 		break;
 	}
+	/*
 	case 4: {
 		showAccounts(people, deliver, accountCount, maxId, deliverCount);
 		break;
 	}
+	*/
 	case 5: {
 		;
 		break;

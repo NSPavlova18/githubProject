@@ -5,6 +5,7 @@
 #include <string>
 using namespace std;
 
+/*
 struct ACCOUNT {
 	string firstName = "";
 	string lastName = "";
@@ -13,6 +14,7 @@ struct ACCOUNT {
 	string city = "";
 	int id = 0;
 };
+*/
 
 struct SHOE {
 	string gender = "";
@@ -157,8 +159,8 @@ void showAccounts(ACCOUNT* people, SHOE deliver[], int& accountCount, int& maxId
 
 
 
-int showMainMenu(SHOE deliver[], ACCOUNT person[], ACCOUNT* people, int& deliverCount, int& accountCount, int& maxId) {
-	int choice;
+int showMainMenu(SHOE deliver[], /*ACCOUNT person[], ACCOUNT* people,*/ /*int& accountCount, int& maxId*/ int& deliverCount) {
+	
 
 	cout << "\n*********************************************" << endl;
 	cout << "*                                           *" << endl;
@@ -175,48 +177,17 @@ int showMainMenu(SHOE deliver[], ACCOUNT person[], ACCOUNT* people, int& deliver
 	cout << "9. Exit" << endl;
 	cout << "Your choice: ";
 
-	cin >> choice;
-
-	switch (choice) {
-	/*
-	case 1: {
-		signUp(person, accountCount);
-		break;
-	}
-	*/
-	/*
-	case 2: {
-		insertDeliver(deliver, deliverCount);
-		break;
-	}
-	*/
-	case 3: {
-		editDeliver(deliver, deliverCount);
-		break;
-	}
-	/*
-	case 4: {
-		showAccounts(people, deliver, accountCount, maxId, deliverCount);
-		break;
-	}
-	*/
-	case 5: {
-		;
-		break;
-	}
-	case 9: {
-		return false;
-	}
-	default:
-		cout<<"Sorry, this is not a valid option. Try again!";
-		break;
-
-	}
+	
 }
 
 int main()
 {
-	cout << "Hello";
+	
+	
+	
+	
+	int choice;
+
 }
 
 

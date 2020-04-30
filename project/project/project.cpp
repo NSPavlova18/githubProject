@@ -167,16 +167,39 @@ void orderIsShipping() //shipping order
 
 }
 
+void place_Order() //placeorderfunction
+{
+	system("cls");
+
+	if (orderPlaced_Checker == true)
+	{
+
+		string choice;
+
+		cout << "Place order for: " << shoe.brand << " " << shoe.model << " " << shoe.color << " " << shoe.gender << " " << shoe.size << endl;
+		cin >> choice;
+
+		if (choice == "yes") orderIsShipping(); 
+
+		else
+		{
+			cout << "Order canceled!";
+		}
+
+		Sleep(1000); //pause for 1 second
 
 
+	}
+
+	else
+	{
+		cout << "It seems that your cart is empty!";
+	}
 
 
+}
 
 
-
-
-
-//place order function (Iliya)
 
 
 

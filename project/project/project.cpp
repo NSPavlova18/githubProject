@@ -24,7 +24,7 @@ struct credentials {
 
 
 
-void startMenu() //mainmenu function (Yavor)
+void startMenu() //mainmenu function 
 {
 	system("cls");
 
@@ -43,7 +43,34 @@ void startMenu() //mainmenu function (Yavor)
 	cout << "Your choice: ";
 }
 
-//signup function (Nevenna) 
+void sign_Up() //signup function 
+{
+
+    account_Created = true;
+
+    string user_gender;
+
+    system("cls");
+
+    cout << "Sign up form" << endl;
+
+    cout << "What is your name" << endl;
+    cin >> user.name;
+
+    cout << "What is your gender(male, female)" << endl;
+    cin >> user.gender;
+
+    cout << "email:" << endl;
+    cin >> user.email;
+
+    cout << "City:" << endl;
+    cin >> user.city;
+
+    cout << "Address:" << endl;
+    cin >> user.address;
+
+
+}
 
 
 

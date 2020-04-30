@@ -229,8 +229,30 @@ void view_Cart()
 }
 
 
+int main()
+{
+	int choice;
+
+	do {
+
+		system("cls");
+
+		startMenu();
+
+		cin >> choice;
+
+		if (choice == 1) sign_Up();
+		if (choice == 2) take_Order();
+		if (choice == 3) edit_Order();
+		if (choice == 4) view_Cart();
+
+
+
+	} while (choice != 5);
 
 
 
 
-//int main (Iliya)
+
+
+}

@@ -75,7 +75,63 @@ void sign_Up() //signup function
 
 
 
-//takeOrder function (Nevenna)
+void take_Order() //takeOrder function 
+{
+
+ 
+
+
+    system("cls");
+
+ 
+
+    cout << "Enter the brand of your shoe: ";
+    cin >> shoe.brand;
+
+ 
+
+    cout << "Enter the model of the shoe: ";
+    cin >> shoe.model;
+
+ 
+
+    cout << "Enter the type of the shoe (for male/female): ";
+    cin >> shoe.gender;
+
+ 
+
+    cout << "Select a color (white, black, red, blue or yellow):" << endl;
+
+ 
+
+    cin >> shoe.color;
+
+ 
+
+    cout << "Type the size of the shoe: ";
+    cin >> shoe.size;
+
+ 
+
+
+    cout << "Your order was placed! ";
+
+ 
+
+    orderPlaced_Checker = true;
+
+ 
+
+    Sleep(2000);
+
+ 
+
+    startMenu();
+
+ 
+
+}
+
 
 
 

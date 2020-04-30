@@ -207,7 +207,30 @@ void place_Order() //placeorderfunction
 
 //edit order function (Nevenna)
 
-//view cart func (Yavor)
+void view_Cart()
+{
+
+	string choice;
+
+	cout << "********** C A R T **********" << endl;
+
+	cout << "The brand of your shoe is: " << shoe.brand << endl;
+	cout << "The model of your shoe is: " << shoe.model << endl;
+	cout << "The type of the shoe is (for male/female): " << shoe.gender << endl;
+	cout << "The color of the shoe: " << shoe.color << endl;
+
+
+
+	cout << "Place order?: ";
+	cin >> choice;
+
+	if (choice == "yes")place_Order();
+
+}
+
+
+
+
 
 
 //int main (Iliya)

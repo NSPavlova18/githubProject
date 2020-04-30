@@ -205,7 +205,43 @@ void place_Order() //placeorderfunction
 
 
 
-//edit order function (Nevenna)
+void edit_Order()
+{
+    system("cls");
+
+ 
+
+    string choice;
+
+ 
+
+    cout << "Your order is: " << endl;
+    cout << "Brand:" << shoe.brand << endl;
+    cout << "Model: " << shoe.model << endl;
+    cout << "Type exit if you want to exit: "<<endl;
+
+ 
+
+    cout << "Type the parameter you want to edit: " << endl;
+    cin >> choice;
+
+ 
+
+    if (choice == "brand")
+    {
+        cin >> shoe.brand;
+    }
+
+ 
+
+    if (choice == "exit")
+    {
+        startMenu();
+    }
+
+ 
+
+}
 
 void view_Cart()
 {

@@ -1,104 +1,202 @@
 #include <iostream>
+
 #include <string>
+
 #include <Windows.h>
+
 #include <stdlib.h>
+
+ 
 
 using namespace std;
 
+ 
 
-bool orderPlaced_Checker = false;
+ 
 
-bool account_Created = false;
+bool orderPlaced_Checker = false; //bool to check if the user's order is placed
 
+ 
 
-struct parameters {
+bool account_Created = false; // bool to check if our user is registered in the system, so he can place his order
 
-	string gender, brand, model, color;
-	double size;
+ 
+
+ 
+
+struct parameters { //all parameters of the shoe
+
+ 
+
+    string gender, brand, model, color;
+
+    double size;
+
 } shoe;
 
-struct credentials {
+ 
 
-	string email, name, gender, city, address;
+struct credentials { //our user's data
+
+ 
+
+    string email, name, gender, city, address;
+
 } user;
 
+ 
 
+ 
 
+ 
 
+ 
 
-void startMenu() //mainmenu function 
+ 
+
+void startMenu() //mainmenu function
+
 {
-	system("cls");
-
-	cout << "\n***********************************************" << endl;
-	cout << "*                                             *" << endl;
-	cout << "* W E L C O M E   T O   S H O E   H E A V E N *" << endl;
-	cout << "*                                             *" << endl;
-	cout << "***********************************************" << endl;
-	cout << "?WHAT DO YOU WANT TO DO?" << endl;
-	cout << "Choose:" << endl;
-	cout << "1. Sign up" << endl;
-	cout << "2. Make an order" << endl;
-	cout << "3. Edit order" << endl;
-	cout << "4. View cart" << endl;
-	cout << "5. Exit" << endl;
-	cout << "Your choice: ";
-}
-
-void sign_Up() //signup function 
-{
-
-    account_Created = true;
-
-    string user_gender;
 
     system("cls");
 
-    cout << "Sign up form" << endl;
+ 
 
-    cout << "What is your name" << endl;
-    cin >> user.name;
+    cout << "\n***********************************************" << endl;
 
-    cout << "What is your gender(male, female)" << endl;
-    cin >> user.gender;
+    cout << "*                                             *" << endl;
 
-    cout << "email:" << endl;
-    cin >> user.email;
+    cout << "* W E L C O M E   T O   S H O E   H E A V E N *" << endl;
 
-    cout << "City:" << endl;
-    cin >> user.city;
+    cout << "*                                             *" << endl;
 
-    cout << "Address:" << endl;
-    cin >> user.address;
+    cout << "***********************************************" << endl;
 
+    cout << "?WHAT DO YOU WANT TO DO?" << endl;
+
+    cout << "Choose:" << endl;
+
+    cout << "1. Sign up" << endl;
+
+    cout << "2. Make an order" << endl;
+
+    cout << "3. Edit order" << endl;
+
+    cout << "4. View cart" << endl;
+
+    cout << "5. Exit" << endl;
+
+    cout << "Your choice: ";
 
 }
 
+ 
 
+void sign_Up() //here our user can make an account into our system, so he can place an order
 
-
-void take_Order() //takeOrder function 
 {
 
  
 
+    account_Created = true;
+
+ 
+
+    string user_gender;
+
+ 
 
     system("cls");
+
+ 
+
+    cout << "Sign up form" << endl;
+
+ 
+
+    cout << "What is your name" << endl;
+
+    cin >> user.name;
+
+ 
+
+    cout << "What is your gender(male, female)" << endl;
+
+    cin >> user.gender;
+
+ 
+
+    cout << "email:" << endl;
+
+    cin >> user.email;
+
+ 
+
+    cout << "City:" << endl;
+
+    cin >> user.city;
+
+ 
+
+    cout << "Address:" << endl;
+
+    cin >> user.address;
+
+ 
+
+ 
+
+}
+
+ 
+
+ 
+
+ 
+
+ 
+
+void take_Order() //here we declare an order into the system
+
+{
+
+ 
+
+    system("cls");
+
+ 
+
+ 
 
  
 
     cout << "Enter the brand of your shoe: ";
+
     cin >> shoe.brand;
 
  
 
+ 
+
+ 
+
     cout << "Enter the model of the shoe: ";
+
     cin >> shoe.model;
 
  
 
-    cout << "Enter the type of the shoe (for male/female): ";
+ 
+
+ 
+
+    cout << "Enter the gender of the shoe (for male/female): ";
+
     cin >> shoe.gender;
+
+ 
+
+ 
 
  
 
@@ -106,21 +204,35 @@ void take_Order() //takeOrder function
 
  
 
+ 
+
+ 
+
     cin >> shoe.color;
 
  
 
+ 
+
+ 
+
     cout << "Type the size of the shoe: ";
+
     cin >> shoe.size;
 
  
 
+ 
 
     cout << "Your order was placed! ";
 
  
 
+ 
+
     orderPlaced_Checker = true;
+
+ 
 
  
 
@@ -134,79 +246,144 @@ void take_Order() //takeOrder function
 
 }
 
+ 
 
+ 
 
+ 
 
-void orderIsShipping() //shipping order
+ 
+
+void orderIsShipping() //this function ships the order to the adress that our user gave us
+
 {
-	system("cls");
 
-	if (account_Created == true)
-	{
-		cout << "Order is now shipping to: " << user.city << " Address:" << user.address << endl;
+    system("cls");
 
-		cout << "You will recieve an email to : " << user.email << " when your order has arrived!";
+ 
 
-		Sleep(5000); //pause for 5 seconds
-	}
+    if (account_Created == true)
 
-	else
-	{
+    {
 
-		string choice;
+        cout << "Order is now shipping to: " << user.city << " Address:" << user.address << endl;
 
-		cout << "You don't have an account!" << endl;
-		cout << "Make one?" << endl;
-		cin >> choice;
+ 
 
+        cout << "You will recieve an email to : " << user.email << " when your order has arrived!";
 
-		if (choice == "yes") sign_Up();
+ 
 
-		else startMenu();
-	}
+        Sleep(5000); //pause for 5 seconds
+
+    }
+
+ 
+
+    else
+
+    { // here it uses the account_created bool so we can know if our client has an account, so we can know where to send the shoes to
+
+ 
+
+        string choice;
+
+ 
+
+        cout << "You don't have an account!" << endl;
+
+        cout << "Make one?" << endl;
+
+        cin >> choice;
+
+ 
+
+ 
+
+        if (choice == "yes") sign_Up();
+
+ 
+
+        else startMenu();
+
+    }
+
+ 
 
 }
 
-void place_Order() //placeorderfunction
+ 
+
+void place_Order() //here we ask the user if he wants to place his order
+
 {
-	system("cls");
 
-	if (orderPlaced_Checker == true)
-	{
+    system("cls");
 
-		string choice;
+ 
 
-		cout << "Place order for: " << shoe.brand << " " << shoe.model << " " << shoe.color << " " << shoe.gender << " " << shoe.size << endl;
-		cin >> choice;
+    if (orderPlaced_Checker == true)
 
-		if (choice == "yes") orderIsShipping(); 
+    {
 
-		else
-		{
-			cout << "Order canceled!";
-		}
+ 
 
-		Sleep(1000); //pause for 1 second
+        string choice;
 
+ 
 
-	}
+        cout << "Place order for: " << shoe.brand << " " << shoe.model << " " << shoe.color << " " << shoe.gender << " " << shoe.size << endl;
 
-	else
-	{
-		cout << "It seems that your cart is empty!";
-	}
+        cin >> choice;
 
+ 
+
+        if (choice == "yes") orderIsShipping();
+
+ 
+
+        else
+
+        {
+
+            cout << "Order canceled!";
+
+        }
+
+ 
+
+        Sleep(1000); //pause for 1 second
+
+ 
+
+    }
+
+ 
+
+    else //this pops if he hasn't made an order yet
+
+    {
+
+        cout << "It seems that your cart is empty!";
+
+    }
+
+ 
 
 }
 
+ 
 
+ 
 
+ 
 
+void edit_Order() // here our client can edit his order. This makes it much more faster to change an order, because
 
+//he doesn't have to do the hole proccess again
 
-
-void edit_Order()
 {
+
     system("cls");
 
  
@@ -216,79 +393,263 @@ void edit_Order()
  
 
     cout << "Your order is: " << endl;
+
     cout << "Brand:" << shoe.brand << endl;
+
     cout << "Model: " << shoe.model << endl;
-    cout << "Type exit if you want to exit: "<<endl;
+
+    cout << "Gender: " << shoe.gender << endl;
+
+    cout << "Color: " << shoe.color << endl;
+
+    cout << "Size: " << shoe.size << endl;
+
+    cout << "Type exit if you want to exit: " << endl << endl;
 
  
 
-    cout << "Type the parameter you want to edit: " << endl;
-    cin >> choice;
+ 
 
  
 
-    if (choice == "brand")
-    {
-        cin >> shoe.brand;
-    }
+    do {
+
+ 
+
+        cout << "Type the parameter you want to edit: " << endl;
+
+        cin >> choice;
+
+ 
+
+ 
+
+        if (choice == "brand" || choice == "Brand")
+
+        {
+
+            cout << endl << "Please type the new brand:" << endl;
+
+            cin >> shoe.brand;
+
+        }
+
+ 
+
+        if (choice == "model" || choice == "Model")
+
+        {
+
+            cout << endl << "Please type the new shoe model:" << endl;
+
+            cin >> shoe.model;
+
+        }
+
+ 
+
+        if (choice == "gender" || choice == "Gender")
+
+        {
+
+            cout << endl << "Please type the new gender:" << endl;
+
+            cin >> shoe.gender;
+
+        }
+
+ 
+
+        if (choice == "model" || choice == "Model")
+
+        {
+
+            cout << endl << "Please type the new color:" << endl;
+
+            cin >> shoe.color;
+
+        }
+
+ 
+
+        if (choice == "size" || choice == "Size")
+
+        {
+
+            cout << endl << "Please type the new size:" << endl;
+
+            cin >> shoe.size;
+
+        }
+
+ 
+
+    } while (choice != "exit");
 
  
 
     if (choice == "exit")
+
     {
+
+        cout << endl;
+
+ 
+
+        cout << "Your changes has been saved :)";
+
+ 
+
+        Sleep(3000);
+
+ 
+
         startMenu();
+
     }
+
+ 
+
+ 
+
+    cout << "Type the parameter you want to edit: " << endl;
+
+    cin >> choice;
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+    if (choice == "exit")
+
+    {
+
+        cout << endl;
+
+ 
+
+        cout << "Your changes has been saved :)";
+
+ 
+
+        Sleep(3000);
+
+ 
+
+        startMenu();
+
+    }
+
+ 
+
+ 
 
  
 
 }
 
-void view_Cart()
+ 
+
+void view_Cart() // here our client can inspect his cart and the orders he made
+
 {
 
-	string choice;
+ 
 
-	cout << "********** C A R T **********" << endl;
+    string choice;
 
-	cout << "The brand of your shoe is: " << shoe.brand << endl;
-	cout << "The model of your shoe is: " << shoe.model << endl;
-	cout << "The type of the shoe is (for male/female): " << shoe.gender << endl;
-	cout << "The color of the shoe: " << shoe.color << endl;
+ 
 
+    cout << "********** C A R T **********" << endl;
 
+ 
 
-	cout << "Place order?: ";
-	cin >> choice;
+    cout << "The brand of your shoe is: " << shoe.brand << endl;
 
-	if (choice == "yes")place_Order();
+    cout << "The model of your shoe is: " << shoe.model << endl;
+
+    cout << "The gender of the shoe is (for male/female): " << shoe.gender << endl;
+
+    cout << "The color of the shoe: " << shoe.color << endl;
+
+ 
+
+ 
+
+ 
+
+    cout << "Place order?: ";
+
+    cin >> choice;
+
+ 
+
+    if (choice == "yes")place_Order();
+
+ 
 
 }
 
+ 
+
+ 
 
 int main()
+
 {
-	int choice;
 
-	do {
+    int choice;
 
-		system("cls");
+ 
 
-		startMenu();
+    do {
 
-		cin >> choice;
+ 
 
-		if (choice == 1) sign_Up();
-		if (choice == 2) take_Order();
-		if (choice == 3) edit_Order();
-		if (choice == 4) view_Cart();
+        system("cls");
 
+ 
 
+        startMenu();
 
-	} while (choice != 5);
+ 
 
+        cin >> choice;
 
+ 
 
+        if (choice == 1) sign_Up();
 
+        if (choice == 2) take_Order();
 
+        if (choice == 3) edit_Order();
+
+        if (choice == 4) view_Cart();
+
+ 
+
+ 
+
+ 
+
+    } while (choice != 5);
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
 
 }

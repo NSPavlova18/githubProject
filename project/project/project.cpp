@@ -6,7 +6,9 @@
 using namespace std;
 
 
+bool orderPlaced_Checker = false;
 
+bool account_Created = false;
 
 
 struct parameters {

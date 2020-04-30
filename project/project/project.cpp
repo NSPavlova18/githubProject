@@ -135,7 +135,36 @@ void take_Order() //takeOrder function
 
 
 
-//shipping order (Yavor)
+void orderIsShipping() //shipping order
+{
+	system("cls");
+
+	if (account_Created == true)
+	{
+		cout << "Order is now shipping to: " << user.city << " Address:" << user.address << endl;
+
+		cout << "You will recieve an email to : " << user.email << " when your order has arrived!";
+
+		Sleep(5000); //pause for 5 seconds
+	}
+
+	else
+	{
+
+		string choice;
+
+		cout << "You don't have an account!" << endl;
+		cout << "Make one?" << endl;
+		cin >> choice;
+
+
+		if (choice == "yes") sign_Up();
+
+		else startMenu();
+	}
+
+}
+
 
 
 

@@ -1,19 +1,16 @@
 #include <iostream>
-
 #include <string>
-
 #include <Windows.h>
 
-#include <stdlib.h>
+
 using namespace std;
 
+bool orderPlacedChecker = false; //bool to check if the user's order is placed
 
-bool orderPlaced_Checker = false; //bool to check if the user's order is placed
-
-bool account_Created = false; // bool to check if our user is registered in the system, so he can place his order
+bool accountCreated = false; // bool to check if our user is registered in the system, so he can place his order
 
 
-struct parameters { //all parameters of the shoe
+struct PARAMETERS { //all parameters of the shoe
 
     string gender, brand, model, color;
     double size;
@@ -21,7 +18,7 @@ struct parameters { //all parameters of the shoe
 } shoe;
 
 
-struct credentials { //our user's data
+struct CREDENTIALS { //our user's data
 
     string email, name, gender, city, address;
 
@@ -45,17 +42,17 @@ void startMenu() //mainmenu function
     cout << "3. Edit order" << endl;
     cout << "4. View cart" << endl;
     cout << "5. Exit" << endl;
- 
+
     cout << "Your choice: ";
 
 }
 
- 
-void sign_Up() //here our user can make an account into our system, so he can place an order
+
+void signUp() //here our user can make an account into our system, so he can place an order
 
 {
-    account_Created = true;
- 
+    accountCreated = true;
+
     string user_gender;
 
     system("cls");
@@ -79,9 +76,9 @@ void sign_Up() //here our user can make an account into our system, so he can pl
 }
 
 
-void take_Order() //here we declare an order into the system
+void takeOrder() //here we declare an order into the system
 {
- 
+
     system("cls");
 
     cout << "Enter the brand of your shoe: ";
@@ -101,8 +98,8 @@ void take_Order() //here we declare an order into the system
 
     cout << "Your order was placed! ";
 
-    orderPlaced_Checker = true;
- 
+    orderPlacedChecker = true;
+
     Sleep(2000);
 
     startMenu();
@@ -115,7 +112,7 @@ void orderIsShipping() //this function ships the order to the adress that our us
 
     system("cls");
 
-    if (account_Created == true)
+    if (accountCreated == true)
     {
 
         cout << "Order is now shipping to: " << user.city << " Address:" << user.address << endl;
@@ -124,7 +121,7 @@ void orderIsShipping() //this function ships the order to the adress that our us
         Sleep(5000); //pause for 5 seconds
 
     }
- 
+
     else
     { // here it uses the account_created bool so we can know if our client has an account, so we can know where to send the shoes to
 
@@ -135,7 +132,7 @@ void orderIsShipping() //this function ships the order to the adress that our us
 
         cin >> choice;
 
-        if (choice == "yes") sign_Up();
+        if (choice == "yes") signUp();
 
         else startMenu();
 
@@ -143,23 +140,23 @@ void orderIsShipping() //this function ships the order to the adress that our us
 
 }
 
- 
 
-void place_Order() //here we ask the user if he wants to place his order
+
+void placeOrder() //here we ask the user if he wants to place his order
 
 {
 
     system("cls");
 
-    if (orderPlaced_Checker == true)
+    if (orderPlacedChecker == true)
     {
-     
+
         string choice;
 
         cout << "Place order for: " << shoe.brand << " " << shoe.model << " " << shoe.color << " " << shoe.gender << " " << shoe.size << endl;
 
         cin >> choice;
-     
+
 
         if (choice == "yes") orderIsShipping();
 
@@ -171,7 +168,7 @@ void place_Order() //here we ask the user if he wants to place his order
         }
 
         Sleep(1000); //pause for 1 second
-     
+
     }
 
     else //this pops if he hasn't made an order yet
@@ -180,12 +177,12 @@ void place_Order() //here we ask the user if he wants to place his order
         cout << "It seems that your cart is empty!";
 
     }
- 
+
 }
 
 
 
-void edit_Order() // here our client can edit his order. This makes it much more faster to change an order, because
+void editOrder() // here our client can edit his order. This makes it much more faster to change an order, because
 
 //he doesn't have to do the hole proccess again
 
@@ -201,7 +198,7 @@ void edit_Order() // here our client can edit his order. This makes it much more
     cout << "Gender: " << shoe.gender << endl;
     cout << "Color: " << shoe.color << endl;
     cout << "Size: " << shoe.size << endl;
- 
+
     cout << "Type exit if you want to exit: " << endl << endl;
 
     do {
@@ -220,7 +217,7 @@ void edit_Order() // here our client can edit his order. This makes it much more
 
         }
 
- 
+
         if (choice == "model" || choice == "Model")
         {
 
@@ -230,7 +227,7 @@ void edit_Order() // here our client can edit his order. This makes it much more
 
         }
 
- 
+
 
         if (choice == "gender" || choice == "Gender")
         {
@@ -241,7 +238,7 @@ void edit_Order() // here our client can edit his order. This makes it much more
 
         }
 
- 
+
 
         if (choice == "model" || choice == "Model")
         {
@@ -264,13 +261,13 @@ void edit_Order() // here our client can edit his order. This makes it much more
 
     } while (choice != "exit");
 
- 
+
     if (choice == "exit")
 
     {
 
         cout << endl;
-        cout << "Your changes has been saved :)";
+        cout << "Your changes have been saved :)";
 
         Sleep(3000);
 
@@ -289,7 +286,7 @@ void edit_Order() // here our client can edit his order. This makes it much more
 
         cout << endl;
 
-        cout << "Your changes has been saved :)";
+        cout << "Your changes have been saved :)";
 
         Sleep(3000);
 
@@ -300,9 +297,9 @@ void edit_Order() // here our client can edit his order. This makes it much more
 
 }
 
- 
 
-void view_Cart() // here our client can inspect his cart and the orders he made
+
+void viewCart() // here our client can inspect his cart and the orders he made
 {
 
     string choice;
@@ -318,7 +315,7 @@ void view_Cart() // here our client can inspect his cart and the orders he made
 
     cin >> choice;
 
-    if (choice == "yes")place_Order();
+    if (choice == "yes") placeOrder();
 
 }
 
@@ -338,15 +335,20 @@ int main()
         cin >> choice;
 
 
-        if (choice == 1) sign_Up();
+        if (choice == 1) signUp();
 
-        if (choice == 2) take_Order();
+        if (choice == 2) takeOrder();
 
-        if (choice == 3) edit_Order();
+        if (choice == 3) editOrder();
 
-        if (choice == 4) view_Cart();
+        if (choice == 4) viewCart();
+
+        if (choice == 5) exit(0);
 
     } while (choice != 5);
+    
+
 
 
 }
+
